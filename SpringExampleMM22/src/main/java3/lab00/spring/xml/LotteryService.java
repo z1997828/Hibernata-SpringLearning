@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class LotteryService {
+public class LotteryService implements ILotteryService {
 	private int lowerBound;
 	private int upperBound;
 	private int ballNumber;
@@ -27,6 +27,7 @@ public class LotteryService {
 		this.ballNumber = ballNumber;
 	}
 
+	@Override
 	public Collection<Integer> getLuckyNumbers() {
 		Set<Integer> set = new TreeSet<Integer>();
 		while (set.size() < ballNumber) {

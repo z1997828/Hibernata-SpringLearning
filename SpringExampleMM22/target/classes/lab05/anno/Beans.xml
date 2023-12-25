@@ -5,14 +5,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	
+	<context:component-scan base-package="lab05.anno" />
+	<context:property-placeholder location="classpath:ch03_EEIT73.properties"/>
 
-	<bean id='Lottery' class='lab00.spring.xml.LotteryService' >
-		<property name="lowerBound" value="1" />
-		<property name="upperBound" value="49" />
-		<property name="ballNumber" value="6" />
+<!-- 	<bean id='radius' class='java.lang.Double' >
+		<constructor-arg value="100.0" />
 	</bean>
-
+	 -->
 	
 	
 </beans>

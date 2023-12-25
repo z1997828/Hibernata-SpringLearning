@@ -5,16 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<bean id='cat' class='ch01.ioc._01_xml.model.impl.Cat' >
-	    <constructor-arg value='嘉飛(Spring.xml)'/>
+	
+
+	<bean id='Lottery' class='lab00.spring.xml.LotteryService' >
+		<property name="lowerBound" value="1" />
+		<property name="upperBound" value="49" />
+		<property name="ballNumber" value="6" />
 	</bean>
 
-	<bean id='dog'     class='ch01.ioc._01_xml.model.impl.Dog' >
-		<constructor-arg value='史奴比(Spring.xml)'/>
-	</bean>
-
-	<bean id='master' class='ch01.ioc._01_xml.model.impl.Master' >
-	    <constructor-arg ref='cat'/>
-	</bean>
+	
 	
 </beans>
