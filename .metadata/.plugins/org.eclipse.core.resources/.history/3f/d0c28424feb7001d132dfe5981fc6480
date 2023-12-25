@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="app01.js">
+ </script> 
+</head>
+<body>
+Hello!!!
+
+<script>
+console.log(greeting + " " +  this.name + punct	) ;
+</script>
+
+
+<a href='ex01A.html'></a>
+</body>
+</html>

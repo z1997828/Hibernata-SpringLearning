@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<item key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID" value="org.eclipse.ui.wizards.export.ZipFile"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="ZipFileExportWizard">
+		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
+		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="F:\EEIT153台中\_2023-04\WebAppLab01_HS.zip"/>
+			<item value="F:\EEIT153台中\HibernateExamplesMM23-_SQLServer_2023-04-03-台中_T2117.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_30_Hibernate_2023-01-08\HibernateExamplesMM23-_SQLServer_2023-04-03-台中_T2117.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_30_Hibernate_2023-01-08\HibernateExamplesMM23-_SQLServer_2023-04-02-台中_T0935.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_30_Hibernate_2023-01-08\HibernateExamplesMM23-_SQLServer_2023-04-02-台中_OK.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab15\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab15\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab14\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab14\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab13\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab13\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab12\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab12\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab11\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab11\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab10\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab10\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab09\Solution\MsSQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab09\Solution\MySQL\mvcExercise23.zip"/>
+			<item value="G:\我的雲端硬碟\_____Advance2022\_60_Spring MVC 23 - Accomplished Date - 2022-12-19\Labs22\Lab08\Solution\MsSQL\mvcExercise23.zip"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.junit"/>
+		</list>
+	</section>
+</section>

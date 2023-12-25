@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="lottery" class="lab00.spring.xml.LotteryService">
+      <!-- 如果程式需要透過Setter來設定性質的初值，就要想到<property ....>標籤   -->
+		<property name="lowerBound" value="1"></property>
+		<property name="upperBound" value="49"></property>
+		<property name="ballNumber" value="6"></property>
+	</bean>
+	
+	
+</beans>

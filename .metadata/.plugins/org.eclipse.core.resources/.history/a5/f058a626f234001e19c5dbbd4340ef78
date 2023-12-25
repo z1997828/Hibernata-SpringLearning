@@ -1,0 +1,122 @@
+package employee.repository.impl;
+
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import employee.constant.SystemService;
+import employee.model.Employee;
+import lab01.model.MemberBean;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+
+	DataSource dataSource;
+	
+	public EmployeeDaoImpl() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup(SystemService.JNDI_String);
+		} catch (NamingException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+	}
+
+	@Override
+	public void resetEmployeeTable() {
+		String drop_table = "DROP TABLE IF EXISTS employees";
+
+        String create_table = "CREATE TABLE  employees (" + 
+            "  `id` INT NOT NULL AUTO_INCREMENT, " + 
+            "  `employeeid` VARCHAR(255) NOT NULL, " +
+            "  `name`       VARCHAR(255) NOT NULL, " + 
+            "  `birthday`   DATETIME  NULL, " + 
+            "  `email`      VARCHAR(255) NOT NULL, " + 
+            "  `image`      LONGTEXT, " +
+            "  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, " +
+            "  PRIMARY KEY (`id`) " +
+            ");  ";
+        
+        
+        try (
+        	Connection conn = dataSource.getConnection();
+			PreparedStatement stmtDrop = conn.prepareStatement(drop_table);
+        	PreparedStatement stmtCreate = conn.prepareStatement(create_table);
+        ) {
+			stmtDrop.executeUpdate();
+			stmtCreate.executeUpdate();
+			
+     	} catch(Exception ex) {
+     		throw new RuntimeException(ex);
+     		
+     	}
+              
+
+	}
+
+	private static final String INSERT = "INSERT INTO employees (employeeId, name, birthday, email, picture) VALUES (?, ?, ?, ?, ?)";
+	
+	@Override
+	public void save(Employee employee) {
+		try (
+			Connection conn = dataSource.getConnection(); 
+			PreparedStatement stmt = conn.prepareStatement(INSERT);
+		) {
+			stmt.setString(1, employee.getEmployeeId());
+			stmt.setString(2, employee.getName());
+			stmt.setDate(3, employee.getBirthday());
+			stmt.setString(4, employee.getEmail());
+			stmt.setClob(5, employee.getPicture());
+
+			
+
+			Timestamp ts = new Timestamp(System.currentTimeMillis());
+			stmt.setTimestamp(6, ts);
+			
+
+			stmt.executeUpdate();
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex.getMessage());
+		}
+
+	}
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Employee findByEmployeeId(String employeeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Employee findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employee> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

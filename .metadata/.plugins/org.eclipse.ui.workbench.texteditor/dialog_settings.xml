@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="null"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="NULL"/>
+			<item value="&apos;"/>
+			<item value="80%"/>
+			<item value="phone"/>
+			<item value="fileDataURL"/>
+			<item value="employeeid"/>
+			<item value="employeeId"/>
+			<item value="lab01"/>
+			<item value="Member"/>
+			<item value="segment"/>
+		</list>
+		<list key="replacehistory">
+			<item value="null"/>
+			<item value="&quot;"/>
+			<item value="90%"/>
+			<item value="Employee"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="799"/>
+		<item key="DIALOG_Y_ORIGIN" value="11"/>
+		<item key="DIALOG_WIDTH" value="419"/>
+		<item key="DIALOG_HEIGHT" value="499"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft JhengHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Microsoft JhengHei UI"/>
+	</section>
+</section>

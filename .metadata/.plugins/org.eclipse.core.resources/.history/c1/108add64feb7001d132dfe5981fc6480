@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ 
+</head>
+<body>
+Hello!!!
+
+<script>
+console.log("ex01A.html, " + greeting + " " +  this.name + punct	) ;
+</script>
+
+
+<a href='ex01A.html'></a>
+</body>
+</html>

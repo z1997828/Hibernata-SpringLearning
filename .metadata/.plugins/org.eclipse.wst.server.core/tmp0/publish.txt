@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Thu Dec 21 16:23:18 CST 2023
+org.eclipse.jst.jee.server\:WebAppLab01=C\:\\_javaee\\tomcat9\\webapps\\WebAppLab01
+org.eclipse.jst.jee.server\:HibernateExamplesMM23=C\:\\_javaee\\tomcat9\\webapps\\HibernateExamplesMM23

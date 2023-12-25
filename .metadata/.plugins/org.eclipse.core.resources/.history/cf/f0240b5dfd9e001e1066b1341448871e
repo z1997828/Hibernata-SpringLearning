@@ -1,0 +1,43 @@
+package jut;
+
+import static org.junit.Assert.*;
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import lab01.utils.HibernateUtils;
+
+public class MyJUnitTest {
+	SessionFactory factory;
+	Session session;
+	Transaction tx;
+	@Before
+	public void setUp() throws Exception {
+		factory = HibernateUtils.getSessionFactory();
+		session = factory.openSession();
+		tx = session.beginTransaction();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		tx.commit();
+		session.close();
+		factory.close();
+	}
+
+	@Test
+	public void test() {
+		System.out.println("@Test");
+	}
+	
+	@Test
+	public void test2() {
+		System.out.println("@Test2");
+	}
+}

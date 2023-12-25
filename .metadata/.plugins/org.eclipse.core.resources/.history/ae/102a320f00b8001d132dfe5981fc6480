@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+var greeting = "大家好";
+
+function helloWorld(){
+	this.name = "君雅";
+	
+	punct = "!";
+	console.log(greeting + " " +  this.name + punct	) ;
+}
