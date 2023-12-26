@@ -7,6 +7,7 @@ import javax.management.RuntimeErrorException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Service;
 
 import lab01.dao.MemberDao;
 import lab01.dao.impl.MemberJdbcDaoImpl;
@@ -14,6 +15,7 @@ import lab01.model.MemberBean;
 import lab01.service.MemberService;
 import lab01.utils.HibernateUtils;
 
+@Service
 public class MemberServiceImpl implements MemberService {
 	
 	MemberDao memberDao = null;

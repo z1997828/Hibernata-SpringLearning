@@ -1,4 +1,4 @@
-package lab08;
+package lab08.config;
 /*
    本程式展示如何由輸入檔一次讀入一個位元組陣列，然後此將位元組陣列寫出到輸出檔，
    為傳統Java程式的寫法。 請以SpringFramework 的風格來改寫本程式。
@@ -16,16 +16,13 @@ import java.io.*;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import lab06.config.JavaConfig;
 
 public class ReadWriteBytesDemo {
 	public static void main(String[] args) throws IOException {
 		long s = 0, e = 0;
-		AnnotationConfigApplicationContext ctx = 
-				new AnnotationConfigApplicationContext(JavaConfig.class);
+		ApplicationContext ctx = 
+				new ClassPathXmlApplicationContext("lab08/Beans.xml");
 		InputStream fis = ctx.getBean(InputStream.class);
 		OutputStream fos = ctx.getBean(OutputStream.class);
 		try {
@@ -43,6 +40,6 @@ public class ReadWriteBytesDemo {
 			fis.close();
 			fos.close();
 		} 
-		ctx.close();
+		((ConfigurableApplicationContext)ctx).close();
 	}
 }

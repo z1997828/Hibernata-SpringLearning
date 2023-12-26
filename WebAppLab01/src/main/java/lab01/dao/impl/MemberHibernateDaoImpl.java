@@ -4,11 +4,13 @@ import java.util.List;
  
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
- 
+import org.springframework.stereotype.Repository;
+
 import lab01.dao.MemberDao;
 import lab01.model.MemberBean;
 import lab01.utils.HibernateUtils;
  
+@Repository
 public class MemberHibernateDaoImpl implements MemberDao {
  
 //	DataSource ds = null;
@@ -81,6 +83,9 @@ public class MemberHibernateDaoImpl implements MemberDao {
 	@Override
 	public void update(MemberBean memberBean) {
 		Session session = factory.getCurrentSession();
+		MemberBean temp = findById(memberBean.getId());
+		memberBean.setRegisterDate(temp.getRegisterDate());
+		session.evict(temp);
 		session.update(memberBean);
 		//session.merge(memberBean);
 	}

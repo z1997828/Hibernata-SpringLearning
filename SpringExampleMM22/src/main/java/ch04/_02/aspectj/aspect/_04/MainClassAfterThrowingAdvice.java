@@ -1,4 +1,4 @@
-package ch04._02.aspectj.aspect._04;
+ package ch04._02.aspectj.aspect._04;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
