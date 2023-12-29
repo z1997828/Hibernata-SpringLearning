@@ -1,0 +1,26 @@
+com.web.store.exception
+
+ProductNotFoundException
+
+@Override
+public BookBean getProductById(int productId) {
+	Session session = factory.getCurrentSession();
+	BookBean bb = session.get(BookBean.class, productId);
+	if (bb == null) {
+		throw new ProductNotFoundException("產品編號：" + productId + "找不到");
+	}
+	return bb;
+}
+
+
+@ExceptionHandler({ProductNotFoundException.class, SQLException.class})
+public ModelAndView handleError(HttpServletRequest request, 
+						ProductNotFoundException exception) {
+	ModelAndView mv = new ModelAndView();
+	mv.addObject("invalidBookId", exception.getBookId());
+	mv.addObject("exception", exception);
+	mv.addObject("url", request.getRequestURL()+"?" + request.getQueryString());
+	mv.setViewName("productNotFound");
+	return mv;
+}
+

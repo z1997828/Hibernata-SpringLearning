@@ -1,0 +1,10 @@
+private MultipartFile  productImage;
+
+@Transient 
+public MultipartFile getProductImage() {
+	return productImage;
+}
+
+public void setProductImage(MultipartFile productImage) {
+	this.productImage = productImage;
+}

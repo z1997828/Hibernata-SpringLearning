@@ -1,0 +1,55 @@
+public String forward(Model model, HttpServletRequest request) 
+public String forwardA(Model model, HttpServletRequest request) 
+public String redirect(Model model, RedirectAttributes redirectAttributes, HttpServletRequest request) 
+public String redirectA(Model model, HttpServletRequest request)
+
+// return "forward:/anotherFWD": 轉發(forward)給能夠匹配給 /anotherFWD的控制器方法
+// 將與下一棒的程式共用同一個請求物件
+// return "anotherFWD": 也是轉發，但Spring框架會視anotherFWD為視圖的邏輯名稱來尋找
+// 對應的視圖，然後由該視圖來產生回應
+@GetMapping("/forwardDemo")
+public String forward(Model model, HttpServletRequest request) {
+	String uri = request.getRequestURI();
+	model.addAttribute("modelData0", "這是以/forwardDemo送來的請求");
+	model.addAttribute("uri0", uri);
+	return "forward:/anotherFWD";
+}
+
+// 被轉發的方法，將與前一個方法共用同一個請求物件
+@GetMapping("/anotherFWD")
+public String forwardA(Model model, HttpServletRequest request) {
+	String uri = request.getRequestURI();
+	model.addAttribute("modelData1", "這是以/anotherFWD送來的請求");
+	model.addAttribute("uri1", uri);
+	return "forwardedPage";
+}
+
+// return "redirect:/redirectAnother": 通知瀏覽器對新網址 /redirectAnother發出請求，即重定向
+// (redirect)。由於是另外一個請求，所以放在原來之請求物件內的資料將不存在。必須將屬性物件儲存
+// 在 RedirectAttributes物件內，另外一個請求才會看的到對應的視圖，然後由該視圖來產生回應。
+@GetMapping("/redirectDemo")
+public String redirect(Model model, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+	String uri = request.getRequestURI();
+	model.addAttribute("modelData2", "這是以/redirectDemo送來的請求，即將通知瀏覽器對" + "新網址發出請求，但瀏覽器不會顯示這樣的訊息");
+	model.addAttribute("uri2", uri);
+	redirectAttributes.addFlashAttribute("modelData3", "這是加在RedirectAttributes" + "物件內的屬性物件，瀏覽器會顯示");
+	redirectAttributes.addFlashAttribute("uri3", uri);
+	return "redirect:/redirectAnother";
+}
+
+// -------------------------
+// 瀏覽器對新網址重新發出的請求將會由這個請求器方法來處理
+@GetMapping("/redirectAnother")
+public String redirectA(Model model, HttpServletRequest request) {
+	return "redirectedPage";
+}
+
+
+<tr height="52" bgcolor="lightblue" align="center">
+            <td width="350"><p align="left" /> 
+                <a href="<c:url value='/forwardDemo' />">RedirectView: forwardDemo</a><br> 
+            </td>
+            <td width="350"><p align="left" />
+                <a href="<c:url value='/redirectDemo' />">RedirectView: redirectDemo</a><br>
+            </td>
+        </tr>

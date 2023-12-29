@@ -1,3 +1,32 @@
 1703474200308	Delete elements
 1703474344441	Copy compilation unit
 1703474458600	Copy file
+1703476706250	Extract interface 'ILotteryService'
+1703483347031	Copy compilation units
+1703483499776	Extract interface 'ICar'
+1703483547868	Copy file
+1703484475099	Copy compilation units
+1703484479895	Copy file
+1703484542122	Extract interface 'ICircle'
+1703486091714	Delete elements
+1703486203889	Copy compilation unit
+1703486210134	Copy file
+1703490432889	Copy compilation units
+1703490541017	Copy file
+1703490716868	Extract interface 'ICar'
+1703491240401	Copy compilation units
+1703491265395	Copy file
+1703491289570	Extract interface 'ICircle'
+1703492370329	Rename resource 'ch03_EEIT73'
+1703555710483	Copy elements
+1703555755342	Delete element
+1703556207252	Move 'ch03_EEIT73.properties' to 'EEIT73'
+1703557677551	Copy compilation units
+1703557724739	Copy compilation unit
+1703557756045	Delete element
+1703557758873	Copy compilation unit
+1703557972582	Copy compilation unit
+1703557985472	Copy compilation unit
+1703561399154	Copy compilation units
+1703577371999	Copy file
+1703578325416	Copy file

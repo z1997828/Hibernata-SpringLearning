@@ -1,0 +1,10 @@
+<div class="form-group">
+	<label class='control-label col-lg-2 col-lg-2' for="productImage">
+		<spring:message code='spring.addProduct.form.image.label'/>
+	</label> 
+	<div class='col-lg-10'>        				
+		<form:input id="productImage" path="productImage" type='file' 
+			class='form:input-large' />
+	</div>
+</div>
+=====================================================================================

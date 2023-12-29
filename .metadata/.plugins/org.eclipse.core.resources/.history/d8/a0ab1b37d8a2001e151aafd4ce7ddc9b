@@ -1,0 +1,10 @@
+package lab00.spring.xml;
+
+public class LotteryMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

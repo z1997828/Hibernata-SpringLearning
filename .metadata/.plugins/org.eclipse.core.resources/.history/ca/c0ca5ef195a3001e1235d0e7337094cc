@@ -1,0 +1,15 @@
+package lab06.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class JavaConfig {
+
+	
+	@Bean
+	public Car car() {
+		Car c = new Car();
+		return c;
+	}
+}

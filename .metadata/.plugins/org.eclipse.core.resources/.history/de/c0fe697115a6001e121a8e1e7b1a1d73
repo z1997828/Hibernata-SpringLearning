@@ -1,0 +1,12 @@
+package _000.examples;
+import java.util.TimeZone;
+
+
+public class TimeZoneDemo {
+	public static void main(String[] args) {
+		String[] tzs = TimeZone.getAvailableIDs();
+		for(String s : tzs) {
+			System.out.println(s);
+		}
+	}
+}

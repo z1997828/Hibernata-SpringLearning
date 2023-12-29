@@ -1,0 +1,35 @@
+package lab08.config;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@PropertySource("classpath:EEIT73/ch03_EEIT73.properties")
+
+public class JavaConfig {
+	@Value("${lab08.inFileName}")
+	String inFileName;
+	
+	@Value("${lab08.outFileName}")
+	String outFileName;
+	
+	@Bean
+	public File infile() {
+		File file = new File(inFileName);
+		
+		return null;
+		
+	}
+	
+	public File outfile() {
+		File file = new File(outFileName);
+		
+		return null;
+		
+	}
+	
+}

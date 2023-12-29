@@ -1,0 +1,59 @@
+<img width='100' height='200' 
+     src="<c:url value='/getPicture/${product.bookId}' />" />
+      
+@GetMapping("/getPicture/{bookId}")
+public ResponseEntity<byte[]> getPicture(HttpServletResponse resp, @PathVariable Integer bookId) {
+    String filePath = "/resources/images/NoImage.jpg";
+
+    byte[] media = null;
+    HttpHeaders headers = new HttpHeaders();
+    String filename = "";
+    int len = 0;
+    BookBean bean = productService.getProductById(bookId);
+    if (bean != null) {
+        Blob blob = bean.getCoverImage();
+        filename = bean.getFileName();
+        if (blob != null) {
+            try {
+                len = (int) blob.length();
+                media = blob.getBytes(1, len);
+            } catch (SQLException e) {
+                throw new RuntimeException("ProductControllerªºgetPicture()µo¥ÍSQLException: " + e.getMessage());
+            }
+        } else {
+            media = toByteArray(filePath);
+            filename = filePath;
+        }
+    } else {
+        media = toByteArray(filePath);
+        filename = filePath;
+    }
+    headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+    String mimeType = servletContext.getMimeType(filename);
+    MediaType mediaType = MediaType.valueOf(mimeType);
+    System.out.println("mediaType =" + mediaType);
+    headers.setContentType(mediaType);
+    ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
+    return responseEntity;
+}
+
+private byte[] toByteArray(String filepath) {
+    byte[] b = null;
+    String realPath = servletContext.getRealPath(filepath);
+    try {
+        File file = new File(realPath);
+        long size = file.length();
+        b = new byte[(int) size];
+        InputStream fis = servletContext.getResourceAsStream(filepath);
+        fis.read(b);
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return b;
+}
+
+
+<img width='100' height='150'
+     src="<c:url value='/getPicture/${product.bookId}'/>" />     

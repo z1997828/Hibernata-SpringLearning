@@ -1,0 +1,37 @@
+@InitBinder
+public void whiteListing(WebDataBinder binder) {
+    binder.setAllowedFields(
+    "author", 
+    "bookNo", 
+    "category", 
+    "price", 
+    "title", 
+    "companyId" 
+    );
+}
+@PostMapping("/products/add")
+public String processAddNewProductForm(
+        @ModelAttribute("bookBean") BookBean bb,
+        BindingResult result ) {
+    String[] suppressedFields = result.getSuppressedFields();
+    if (suppressedFields.length > 0) {
+        throw new RuntimeException("嘗試傳入不允許的欄位: " + 
+        StringUtils.arrayToCommaDelimitedString(suppressedFields));
+    }
+
+    if (bb.getStock() == null) {
+        bb.setStock(0);
+    }
+    productService.addProduct(bb);
+    return "redirect:/products";
+}
+
+
+<div class="form-group">
+	<label class='control-label col-lg-2 col-lg-2' for="stock">
+		庫存 </label>
+	<div class='col-lg-10'>
+		<form:input id="stock" path="stock" type='text'
+			class='form:input-large' />
+	</div>
+</div>

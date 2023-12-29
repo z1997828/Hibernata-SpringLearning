@@ -1,0 +1,110 @@
+輸入 RootAppConfig
+
+@Configuration
+@EnableTransactionManagement
+ 
+
+@Bean
+public DataSource dataSource() {
+    ComboPooledDataSource ds = new ComboPooledDataSource();
+    ds.setUser("root");
+    ds.setPassword("Do!ng123");
+    try {
+        ds.setDriverClass("com.mysql.cj.jdbc.Driver");
+    } catch (PropertyVetoException e) {
+        e.printStackTrace();
+    }
+    ds.setJdbcUrl("jdbc:mysql://localhost:3306/jspdb?useSSL=false" + 
+                  "&useUnicode=true&characterEncoding=utf8" + 
+                  "&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true"
+       );
+    ds.setInitialPoolSize(4);
+    ds.setMaxPoolSize(8);
+    return ds;
+}
+
+
+@Bean
+public LocalSessionFactoryBean sessionFactory() {
+    LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
+    factory.setDataSource(dataSource());   // dataSource()為定義在前一頁的方法
+    factory.setPackagesToScan(new String[] {
+            "com.web.store.model"
+        });
+     // additionalProperties ()為定義在後面的方法
+    factory.setHibernateProperties(additionalProperties());  
+    return factory;
+}
+
+@Bean(name="transactionManager")
+@Autowired
+public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+     HibernateTransactionManager txManager = new HibernateTransactionManager();
+     txManager.setSessionFactory(sessionFactory);
+     return txManager;
+}    
+
+private Properties additionalProperties() {
+    Properties properties=new Properties();
+    properties.put("hibernate.dialect", org.hibernate.dialect.MySQL8Dialect.class);
+    properties.put("hibernate.show_sql", Boolean.TRUE);
+    properties.put("hibernate.format_sql", Boolean.TRUE);
+    properties.put("default_batch_fetch_size", 10);
+    properties.put("hibernate.hbm2ddl.auto", "update");
+    return properties;
+}
+
+
+com.web.store.dao.impl
+com.web.store.service.impl
+
+return new Class[]{RootAppConfig.class};
+
+ProductDao
+
+List<BookBean>  getAllProducts(); 
+
+ProductDaoImpl
+
+List<BookBean>  getAllProducts(); 
+
+public List<BookBean> getAllProducts() {
+    String hql = "FROM BookBean";
+    Session session = null;
+    List<BookBean> list = new ArrayList<>();
+    session = factory.getCurrentSession();
+    list = session.createQuery(hql).getResultList();
+    return list;
+}
+
+ProductService
+
+ProductServiceImpl
+
+
+ProductDao productDao;
+    
+@Autowired
+public ProductServiceImpl(ProductDao productDao) {
+	this.productDao = productDao;
+}
+
+    
+@Transactional
+	@Override
+	public List<BookBean> getAllProducts() {
+		return productDao.getAllProducts(); 
+	}
+
+      <c:forEach var='product' items='${products}'>
+      
+      </c:forEach>
+
+      
+      <tr height="52" bgcolor="lightblue" align="center">
+			<td width="350"><p align="left" /> <a
+				href="<c:url value='/products' />">查詢所有產品資料</a><BR>
+			</td>
+			<td width="350"><p align="left" /> <a href=''>&nbsp;</a><BR>
+			</td>
+		</tr>

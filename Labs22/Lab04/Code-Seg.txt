@@ -1,0 +1,39 @@
+void updateStock(int productId, int newQuantity);
+
+
+@Override
+public void updateStock(int productId, int newQuantity) {
+    Session session = factory.getCurrentSession();
+    String hql = "UPDATE BookBean b SET b.stock = :stock WHERE bookId = :id";
+    session.createQuery(hql).setParameter("stock", newQuantity)
+                            .setParameter("id", productId)
+                            .executeUpdate();
+}
+
+void updateAllStocks();
+
+@Transactional
+@Override
+public void updateAllStocks() {
+    List<BookBean> allProducts = productDao.getAllProducts();
+    for(BookBean bb : allProducts) {
+        if (bb.getStock() != null && bb.getStock() < 50) {
+        	productDao.updateStock(bb.getBookId(), bb.getStock() + 50);
+        }
+    }
+}
+
+
+@GetMapping("/update/stock")
+public String updateStock(Model model) {
+	productService.updateAllStocks();
+    return "redirect:/products";
+}    
+
+<td width="350"><p align="left" /> 
+	<a href="<c:url value='/update/stock' />">更新多筆產品的庫存數量</a><BR>
+</td>    
+    
+
+
+

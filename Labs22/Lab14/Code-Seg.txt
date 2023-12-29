@@ -1,0 +1,109 @@
+@Bean
+public CommonsMultipartResolver multipartResolver() {
+	CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+	resolver.setDefaultEncoding("UTF-8");
+	resolver.setMaxUploadSize(81920000);
+	return resolver;
+}
+
+-----------------------------------------------
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.2.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>1.3.2</version>
+</dependency>
+
+---------------------------------------------------
+
+@Transient
+private MultipartFile  productImage;
+
+public MultipartFile getProductImage() {
+    return productImage;
+}
+
+public void setProductImage(MultipartFile productImage) {
+    this.productImage = productImage;
+}
+---------------------------------------------------
+<div class="form-group">
+	<label class='control-label col-lg-2 col-lg-2' for="productImage">
+		<spring:message code='spring.addProduct.form.image.label' />
+	</label>
+	<div class='col-lg-10'>
+		<form:input id="productImage" path="productImage" type='file'
+			class='form:input-large' />
+	</div>
+</div>
+
+---------------------------------------------------
+<form:form method='POST' modelAttribute="bookBean" class='form-horizontal'
+			enctype="multipart/form-data" >
+			
+			
+MultipartFile productImage = bb.getProductImage();
+String originalFilename = productImage.getOriginalFilename();
+bb.setFileName(originalFilename);
+//  建立Blob物件，交由 Hibernate 寫入資料庫
+if (productImage != null && !productImage.isEmpty() ) {
+	try {
+		byte[] b = productImage.getBytes();
+		Blob blob = new SerialBlob(b);
+		bb.setCoverImage(blob);
+	} catch(Exception e) {
+		e.printStackTrace();
+		throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+	}
+}			
+
+---------------------------------------------------
+
+String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+String rootDirectory = servletContext.getRealPath("/");
+try {
+	File imageFolder = new File(rootDirectory, "images");
+	if (!imageFolder.exists()) imageFolder.mkdirs();
+	File file = new File(imageFolder, bb.getBookId() + ext);
+	productImage.transferTo(file);
+} catch(Exception e) {
+	e.printStackTrace();
+	throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+}
+
+---------------------------------------------------
+
+@InitBinder
+public void whiteListing(WebDataBinder binder) {
+	binder.setAllowedFields(
+			"author"
+		  , "bookNo"
+		  , "category"
+		  , "price"
+		  , "title"
+		  , "companyId"
+		  , "productImage"
+		  );
+}
+
+---------------------------------------------------
+
+
+---------------------------------------------------
+
+@InitBinder
+public void whiteListing(WebDataBinder binder) {
+	binder.setAllowedFields(
+			"author"
+		  , "bookNo"
+		  , "category"
+		  , "price"
+		  , "title"
+		  , "companyId"
+		  , "productImage"
+		  );
+}

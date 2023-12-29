@@ -6,8 +6,12 @@
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
 			<item value=""/>
+			<item value="C:\_javaee\1229"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\_javaee\1229\Labs22\Lab00 空白專案\mvcExercise.zip"/>
+			<item value="C:\_javaee\1229\SpringExampleMM22_MySQL_2023_12_29.zip"/>
+			<item value="C:\_javaee\SpringExamples.zip"/>
 			<item value="G:\我的雲端硬碟\_____Advance2022\_30_Hibernate_2023-01-08\WebAppLab01_題目.zip"/>
 			<item value="G:\我的雲端硬碟\_____Advance2022\_75_Ajax_SpringREST 2022-10-02\ajax22mm_SpringRest22mm_2022_10_10_OK.zip"/>
 			<item value="D:\Downloads\Sil\WebAppLab01_CRUD_Hibernate_Spring_MySQL_OK.zip"/>

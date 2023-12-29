@@ -1,0 +1,29 @@
+<spring:message code='spring.addProduct.form.addProductData.label' />
+
+<spring:message code='spring.addProduct.form.backToHomepage.label' />
+
+<spring:message code='spring.addProduct.form.title.label' />
+
+<spring:message code='spring.addProduct.form.author.label' />  
+
+<spring:message code='spring.addProduct.form.category.label' /> 
+                
+<spring:message code='spring.addProduct.form.price.label' />  
+
+<spring:message code='spring.addProduct.form.bookNo.label' /> 
+
+<spring:message code='spring.addProduct.form.bookCompany.label' /> 
+
+<spring:message code='spring.addProduct.form.select.label' />
+
+<spring:message code='spring.addProduct.form.submit.label' />
+
+
+
+@Bean
+public MessageSource messageSource() {
+	ResourceBundleMessageSource rbms = new ResourceBundleMessageSource();
+	rbms.setBasename("messages");
+	return rbms;
+	
+}	

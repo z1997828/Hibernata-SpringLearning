@@ -1,0 +1,1 @@
+修改products.jsp<a href="<spring:url value='/product?id=${product.bookId}' />"    class="btn btn-primary">    <span class="glyphicon-info-sigh glyphicon"></span>詳細資料</a>-----------------------------------------------------修改product.jsp<a href="<spring:url value='/products' />" class="btn btn-default">	<span class="glyphicon-hand-left glyphicon"></span>返回</a> 

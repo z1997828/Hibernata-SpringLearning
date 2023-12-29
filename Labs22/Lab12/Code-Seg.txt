@@ -1,0 +1,9 @@
+@Override 
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+     registry.addResourceHandler("/css/**")
+             .addResourceLocations("/WEB-INF/views/css/");
+     registry.addResourceHandler("/image/**")
+             .addResourceLocations("/WEB-INF/views/images/");
+} 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel='stylesheet' href="<c:url value='/css/styles.css' />"  type="text/css" />
